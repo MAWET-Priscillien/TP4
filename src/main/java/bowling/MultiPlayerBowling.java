@@ -49,7 +49,6 @@ public class MultiPlayerBowling implements MultiPlayerGame {
             currentPlayer = (currentPlayer+1)%players.length;
         }
         return print1+players[currentPlayer].name+print2+players[currentPlayer].partie.getFrameNumber()+print3+players[currentPlayer].partie.getNextBallNumber();
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -61,8 +60,6 @@ public class MultiPlayerBowling implements MultiPlayerGame {
             }
         }
         return players[nb].partie.score();
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
