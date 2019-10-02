@@ -56,6 +56,47 @@ public class MultiPlayerBowlingTest {
     }
     
     
+    // Test exception si liste joueurs vide
+    @Test ( expected = java.lang.Exception.class )
+    public void playerEmpty() throws Exception{
+        String[] players2= { };
+        System.out.println(game.startNewGame(players2));
+    }
+    
+    // Test exception si liste joueurs nulle
+    @Test ( expected = java.lang.Exception.class )
+    public void playerNull() throws Exception{
+        String[] players3= null;
+        System.out.println(game.startNewGame(players3));
+    }
+    
+    // Test exception si joueur n'existe pas et qu'on demande son score
+    @Test ( expected = java.lang.Exception.class )
+    public void playerUnknown() throws Exception{
+        System.out.println(game.startNewGame(players));
+        System.out.println(game.scoreFor("Priscillien"));
+    }
+    
+    
+    // Test partie terminée
+    @Test
+    public void gameOver() throws Exception{
+        System.out.println(game.startNewGame(players));
+        for (int i=0;i<47;i++){
+            System.out.println(game.lancer(10));
+        }
+        assertEquals("Partie terminée", game.lancer(10));
+    }
+    
+    
+    // Test exception partie non démarrée
+    @Test ( expected = java.lang.Exception.class )
+    public void notStarted() throws Exception{
+        System.out.println(game.lancer(10));
+    }
+    
+    
+    
     
     
 }
